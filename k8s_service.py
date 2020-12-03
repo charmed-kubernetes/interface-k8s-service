@@ -1,5 +1,3 @@
-from functools import cached_property  # nb: requires Python 3.8+
-
 from ops.framework import (
     Object,
     StoredState,
