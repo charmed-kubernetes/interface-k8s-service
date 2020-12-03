@@ -47,7 +47,7 @@ class RequireK8sService(Object):
     def _relations(self):
         return self.model.relations[self._relation_name]
 
-    @cached_property
+    @property
     def services(self):
         services = []
         for relation in sorted(self._relations, key=attrgetter('id')):
@@ -67,7 +67,7 @@ class RequireK8sService(Object):
     def is_created(self):
         return len(self._relations) > 0
 
-    @cached_property
+    @property
     def _data_hash(self):
         return md5(str(self.services).encode('utf8')).hexdigest()
 
