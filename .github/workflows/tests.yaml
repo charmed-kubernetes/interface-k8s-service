@@ -1,0 +1,21 @@
+name: Test Suite for K8s Service Interface
+
+on:
+  - pull_request
+
+jobs:
+  lint-and-unit-tests:
+    name: Lint & Unit tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install Tox
+      run: pip install tox
+    - name: Run lint & unit tests
+      run: tox
+
