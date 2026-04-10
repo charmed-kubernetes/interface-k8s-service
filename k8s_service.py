@@ -71,7 +71,7 @@ class RequireK8sService(Object):
 
     @property
     def _data_hash(self):
-        return md5(str(self.services).encode("utf8")).hexdigest()
+        return md5(str(self.services).encode("utf8")).hexdigest() # nosec B324
 
     def _check_services(self, event):
         if self.is_available and self.state.data_hash != self._data_hash:
